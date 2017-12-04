@@ -12,14 +12,12 @@
                   var price = parseFloat(data.price_aud);
                   var totalValue = price * raiAmount;
                   var profit = totalValue-startValue;
+                    document.getElementById("startValue").innerText = "$" + startValue.toFixed(2);
+                    document.getElementById("price").innerText = "$" + price.toFixed(2);
+                    document.getElementById("totalValue").innerText = "$" + totalValue.toFixed(2);
+                    document.getElementById("profit").innerText = "$" + profit.toFixed(2);
                 });
               }
-            document.getElementById("startValue").innerText = "$" + startValue.toFixed(2);
-            document.getElementById("price").innerText = "$" + price.toFixed(2);
-            document.getElementById("totalValue").innerText = "$" + totalValue.toFixed(2);
-            document.getElementById("profit").innerText = "$" + profit.toFixed(2);
-            });
-        }
     </script>
     <style>
         #title{
