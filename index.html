@@ -57,7 +57,7 @@
             background-color: #4CAF50;
             color: white;
         }
-        .coinmarketcap-currency-widget{
+        .cmc{
             width:150px;
             background-color: white;
             float: left;
@@ -69,7 +69,8 @@
 <body onload="calcStats();">
   <h2 id="title">Mia's Portfolio</h2>
   <script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/currency.js"></script>
-<div class="coinmarketcap-currency-widget" data-currency="raiblocks" data-base="USD"  data-secondary="BTC"></div>
+<div id="cmc">
+<div class="coinmarketcap-currency-widget" data-currency="raiblocks" data-base="AUD"  data-secondary="BTC"></div></div>
   <table id="stats">
     <tbody><tr>
       <th>Total Value</th>
