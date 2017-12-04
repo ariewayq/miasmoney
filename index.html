@@ -4,13 +4,13 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script>
     function calcStats(){
-      int raiAmount = 604.4;
-      int startValue = 247;
+      var raiAmount = 604.4;
+      var startValue = 247;
       document.getElementById("startValue").innerHTML = startValue;
       $.get("https://api.coinmarketcap.com/v1/ticker/?limit=0&convert=AUD", function(data, status) {
       for (var i = 0; i < data.length - 1; i++) {
         if (data[i].id == "raiblocks") {
-          totalValue = data[i].price_aud * raiAmount;
+          var totalValue = data[i].price_aud * raiAmount;
         }
       }
     });
