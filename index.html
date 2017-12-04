@@ -9,10 +9,10 @@
               var raiAmount = 604.4;
               var startValue = 247;
               $.get("https://api.coinmarketcap.com/v1/ticker/raiblocks/?convert=aud", function(data, status) {
-                  var price = parseFloat(data.price_aud)
+                  var price = parseFloat(data.price_aud);
                   var totalValue = price * raiAmount;
                   var profit = totalValue-startValue;
-                }
+                });
               }
             document.getElementById("startValue").innerText = "$" + startValue.toFixed(2);
             document.getElementById("price").innerText = "$" + price.toFixed(2);
@@ -58,6 +58,10 @@
             text-align: left;
             background-color: #4CAF50;
             color: white;
+        }
+        .coinmarketcap-currency-widget{
+            width:150px;
+            background-color: white;
         }
     </style>
 </head>
