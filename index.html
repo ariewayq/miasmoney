@@ -10,8 +10,8 @@
       $.get("https://api.coinmarketcap.com/v1/ticker/?limit=0&convert=AUD", function(data, status) {
       for (var i = 0; i < data.length - 1; i++) {
         if (data[i].id == "raiblocks") {
-          var totalValue = parseInt(data[i].price_aud) * raiAmount;
-          console.log(parseInt(data[i].price_aud));
+          var totalValue = parseFloat(data[i].price_aud) * raiAmount;
+          console.log(parseFloat(data[i].price_aud));
         }
       }
     });
