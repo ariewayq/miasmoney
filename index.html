@@ -6,8 +6,8 @@
     <link rel="icon" href="/bitcoin-logo-DDAEEA68FA-seeklogo.com.png">
     <script>
         function calcStats(){
-              var password = prompt("Please enter password);
-              if (password == "bigdollar"){          
+              var password = prompt("Enter password");
+              if (password == "bitcoingood"){
               var raiAmount = 604.4;
               var startValue = 247;
               $.get("https://api.coinmarketcap.com/v1/ticker/raiblocks/?convert=aud", function(data, status) {
@@ -20,6 +20,15 @@
                     document.getElementById("profit").innerText = "$" + profit.toFixed(2);
                 });
               }}
+        function changeColor(){
+            var div = document.getElementById('cmc');
+            var divs = div.getElementsByTagName('div');
+            var divArray = [];
+            for (var i = 0; i < divs.length; i += 1) {
+            divs[i].style.border = "2px solid #0094B2";
+            break;
+            }
+        }
     </script>
     <style>
         #title{
@@ -43,35 +52,30 @@
             margin: auto;
             border: 2px solid #0094B2;
         }
-
         #stats td, #stats th {
             border: 1px solid #ddd;
             padding: 8px;
         }
-
         #stats tr:nth-child(even){background-color: #f2f2f2;}
-
         #stats tr:hover {background-color: #ddd;}
-
         #stats th {
             padding-top: 12px;
             padding-bottom: 12px;
             text-align: left;
-            background-color: #4CAF50;
+            background-color: #0094B2;
             color: white;
         }
         .coinmarketcap-currency-widget{
             width:150px;
             float: left;
             margin: 20px;
-            border: 2px solid #0094B2;
         }
     </style>
 </head>
-<body onload="calcStats();">
+<body onload="calcStats();setTimeout(changeColor, 500);">
   <h2 id="title">Mia's Portfolio</h2>
   <script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/currency.js"></script>
-<div class="coinmarketcap-currency-widget" data-currency="raiblocks" data-base="AUD"  data-secondary="BTC"></div>
+  <div id="cmc" class="coinmarketcap-currency-widget" data-currency="raiblocks" data-base="AUD" data-secondary="BTC"></div>
   <table id="stats">
     <tbody><tr>
       <th>Total Value</th>
