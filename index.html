@@ -8,10 +8,8 @@
         function calcStats(){
               var raiAmount = 604.4;
               var startValue = 247;
-              $.get("https://api.coinmarketcap.com/v1/ticker/?limit=0&convert=AUD", function(data, status) {
-              for (var i = 0; i < data.length - 1; i++) {
-                if (data[i].id == "raiblocks") {
-                  var price = parseFloat(data[i].price_aud)
+              $.get("https://api.coinmarketcap.com/v1/ticker/raiblocks/?convert=aud", function(data, status) {
+                  var price = parseFloat(data.price_aud)
                   var totalValue = price * raiAmount;
                   var profit = totalValue-startValue;
                 }
@@ -65,6 +63,8 @@
 </head>
 <body onload="calcStats();">
   <h2 id="title">Mia's Portfolio</h2>
+  <script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/currency.js"></script>
+<div class="coinmarketcap-currency-widget" data-currency="raiblocks" data-base="USD"  data-secondary="BTC"></div>
   <table id="stats">
     <tbody><tr>
       <th>Total Value</th>
