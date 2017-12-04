@@ -1,35 +1,81 @@
 <!DOCTYPE html>
 <head>
-  <title>Mia's Portfolio</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  <script>
-    function calcStats(){
-      var raiAmount = 604.4;
-      var startValue = 247;
-      document.getElementById("startValue").innerHTML = startValue;
-      $.get("https://api.coinmarketcap.com/v1/ticker/?limit=0&convert=AUD", function(data, status) {
-      for (var i = 0; i < data.length - 1; i++) {
-        if (data[i].id == "raiblocks") {
-          var totalValue = parseFloat(data[i].price_aud) * raiAmount;
-          console.log(parseFloat(data[i].price_aud));
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Mia's Portfolio</title>
+    <script src="./Mia&#39;s Portfolio_files/jquery.min.js"></script>
+    <script>
+        function calcStats(){
+              var raiAmount = 604.4;
+              var startValue = 247;
+              $.get("https://api.coinmarketcap.com/v1/ticker/?limit=0&convert=AUD", function(data, status) {
+              for (var i = 0; i < data.length - 1; i++) {
+                if (data[i].id == "raiblocks") {
+                  var price = parseFloat(data[i].price_aud)
+                  var totalValue = price * raiAmount;
+                  var profit = totalValue-startValue;
+                }
+              }
+            document.getElementById("startValue").innerText = "$" + startValue.toFixed(2);
+            document.getElementById("price").innerText = "$" + price.toFixed(2);
+            document.getElementById("totalValue").innerText = "$" + totalValue.toFixed(2);
+            document.getElementById("profit").innerText = "$" + profit.toFixed(2);
+            });
         }
-      }
-    });
-    document.getElementById("totalValue").innerHTML = totalValue;
-    document.getElementById("profit").innerHTML = totalValue-startValue;
-    }
-  </script>
+    </script>
+    <style>
+        #title{
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            color: #6c2421;
+            text-align: center;
+            font-size: 80px;
+        }
+        body {
+            background-color: #216C2A;
+        }
+        #stats {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            font-size: 30px;
+            border-collapse: collapse;
+            width: 300px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin: auto;
+        }
+
+        #stats td, #stats th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #stats tr:nth-child(even){background-color: #f2f2f2;}
+
+        #stats tr:hover {background-color: #ddd;}
+
+        #stats th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
 <body onload="calcStats();">
-  <table>
-    <tr>
+  <h2 id="title">Mia's Portfolio</h2>
+  <table id="stats">
+    <tbody><tr>
       <th>Total Value</th>
+      <th>Price per Raiblock</th>
       <th>Start Value</th>
       <th>Profit</th>
     </tr>
     <tr>
-      <td id="totalValue"></td>
-      <td id="startValue"></td>
-      <td id="profit"></td>
+      <td id="totalValue">Loading...</td>
+      <td id="price">Loading...</td>
+      <td id="startValue">Loading...</td>
+      <td id="profit">Loading...</td>
     </tr>
-  </table>
+  </tbody></table>
 </body>
