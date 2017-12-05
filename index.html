@@ -18,7 +18,7 @@
                     document.getElementById("price").innerText = "$" + price.toFixed(2);
                     document.getElementById("totalValue").innerText = "$" + totalValue.toFixed(2);
                     document.getElementById("profit").innerText = "$" + profit.toFixed(2);
-                    changeColor();
+                    setTimeout(changeColor, 500);
                 });
               }}
         function changeColor(){
