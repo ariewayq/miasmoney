@@ -14,10 +14,14 @@
                   var price = parseFloat(data[0].price_aud);
                   var totalValue = price * raiAmount;
                   var profit = totalValue-startValue;
+                    //document.getElementById("startValue").innerText = "$" + startValue.toFixed(2);
+                    //document.getElementById("price").innerText = "$" + price.toFixed(2);
+                    //document.getElementById("totalValue").innerText = "$" + totalValue.toFixed(2);
+                    //document.getElementById("profit").innerText = "$" + profit.toFixed(2);
                     document.getElementById("startValue").innerText = "$" + startValue.toFixed(2);
-                    document.getElementById("price").innerText = "$" + price.toFixed(2);
-                    document.getElementById("totalValue").innerText = "$" + totalValue.toFixed(2);
-                    document.getElementById("profit").innerText = "$" + profit.toFixed(2);
+                    document.getElementById("price").innerText = "$" + .40
+                    document.getElementById("totalValue").innerText = "$" + 350
+                    document.getElementById("profit").innerText = "$" + 100
                     setTimeout(changeColor, 500);
                 });
               }}
